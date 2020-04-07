@@ -1,0 +1,50 @@
+# 1.
+#This program add affected countries (i.e. affected by COVID-19) in a list:
+
+#defining a List
+affected_countries =["China","Italy","Spain"]
+No_of_cases =[123,756,644]
+print(affected_countries)
+print(No_of_cases)
+
+#add item by using insert
+affected_countries.insert(1,"India")
+No_of_cases.insert(1,58)
+print(affected_countries)
+print(No_of_cases)
+
+#append item by using append
+affected_countries.append("America")
+No_of_cases.append("789")
+print(affected_countries)
+print(No_of_cases)
+
+print("---------------------------------")
+
+# 2.
+#This program delete elements from a tuple
+
+teams=("India","Australia","South Africa","England")
+print(teams)
+
+print("Best Cricket Team in the world:",teams[0])
+print("Team contain fast bowlers:",teams[3:0:-2])
+print("No. of teams: ",len(teams))
+print("Arranging teams to their position in ICC rank: ",teams[0:])
+
+print("----------------------------------")
+
+
+# 3.
+#This program deleting different dictionary elements
+
+Rashan =dict([(1,"Dal"),(2,"Rice"),(3,"veggies"),(4,"Dairy product")])
+print(Rashan)
+
+Rashan.pop(4)
+print(Rashan)
+
+Rashan.popitem()
+print(Rashan)
+
+print("------------- THANKS ----------------")
