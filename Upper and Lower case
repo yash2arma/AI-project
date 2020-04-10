@@ -1,0 +1,15 @@
+def total(x):
+    upper,lower,other =0,0,0
+    for i in range(len(x)):
+        if x[i] >='A' and x[i]<='Z':
+            upper+=1
+        elif x[i]>='a' and x[i]<='z':
+            lower+=1
+        else:
+            other+=1
+    print('Upper case letters:',upper)
+    print('Lower case letters:', lower)
+    print('Other character or space:', other)
+
+x= input("Enter the sentence")
+total(x)
