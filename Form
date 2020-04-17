@@ -1,0 +1,107 @@
+from tkinter import *
+from tkinter.ttk import Combobox
+window=Tk()
+window.title("Application Form")
+window.geometry("1000x800+120+120")
+window.config(bg="silver")
+f=Frame(window).grid(row=0, sticky=N)
+a0=Label(f, text="Examination Form", font=("times new roman", 40), bg="silver").grid(row=0,column=1, pady=2)
+a1=Label(window, text="Username:", font=("times new roman", 18), width=15, bg="silver").grid(row=1)
+a2=Label(window, text="Registration No.:", font=("times new roman", 18), width=15, bg="silver").grid(row=2)
+a3=Label(window, text="Gender:", font=("times new roman", 18), width=15, bg="silver").grid(row=3)
+a4=Label(window, text="DOB:", font=("times new roman", 18), width=15, bg="silver").grid(row=6)
+a5=Label(window, text="Mobile No.:", font=("times new roman", 18), width=15, bg="silver").grid(row=9)
+a6=Label(window, text="12th Percentage:", font=("times new roman", 18), width=15, bg="silver").grid(row=10)
+a7=Label(window, text="Email ID:", font=("times new roman", 18), width=15, bg="silver").grid(row=11)
+a8=Label(window, text="Local Address:", font=("times new roman", 18), width=15, bg="silver").grid(row=12)
+e1=StringVar()
+e2=StringVar()
+e3=StringVar()
+e3.set(1)
+e4a=StringVar()
+e4b=StringVar()
+e4c=StringVar()
+e5=StringVar()
+e6=StringVar()
+e7=StringVar()
+e8=StringVar()
+e8.set(1)
+l1= list(range(1,32))
+l2=["JAN","FEB","MAR","APR","MAY","JUNE","JUL","AUG","SEP","OCT","NOV","DEC"]
+l3= list(range(1980,2010))
+f1=Frame(window).grid(row=3, column=1)
+f2=Frame(window).grid(row=4, column=1)
+f3=Frame(window).grid(row=8, column=1)
+
+b1=Entry(window, width=60, textvariable=e1).grid(row=1, column=1)
+b2=Entry(window, width=60, textvariable=e2).grid(row=2, column=1)
+b3a=Radiobutton(f1, text="Male", width=5, bg="silver", font=("times new roman", 15), value="Male", variable=e3).grid(row=3, column=1, sticky=W)
+b3b=Radiobutton(f1, text="Female", width=5, bg="silver", font=("times new roman", 15), value="Female", variable=e3).grid(row=4, column=1, sticky=W)
+b3c=Radiobutton(f1, text="Other", width=5, bg="silver", font=("times new roman", 15), value="Other", variable=e3).grid(row=5, column=1, sticky=W)
+b4a=Combobox(f2,value=l1,textvariable=e4a).grid(row=6, column=1, sticky=W)
+b4b=Combobox(f2,value=l2,textvariable=e4b).grid(row=7, column=1, sticky=W)
+b4c=Combobox(f2,value=l3,textvariable=e4c).grid(row=8, column=1, sticky=W)
+b5=Entry(window, width=60, textvariable=e5).grid(row=9, column=1)
+b6=Spinbox(window,from_=1,to =100,width=58,textvariable=e6).grid(row=10,column=1)
+b7=Entry(window, width=60, textvariable=e7).grid(row=11, column=1)
+b8a=Radiobutton(f3,text="Hosteller",value="Hosteller",bg="silver",variable=e8).grid(row=12,column=1,sticky=W)
+b8b=Radiobutton(f3,text="Day Scholar",value="Day Scholar",bg="silver",variable=e8).grid(row=13,column=1,sticky=W)
+
+a9=Label(window,text="           ",bg="silver").grid(row=14,sticky=W)
+
+
+def check():
+        if e1.get() == None:
+            a9.config(text="Error!,please enter the Username",bg="silver",fg="red")
+        elif e2.get() == 0:
+            a9.config(text="Error!,please enter the Registration No.",bg="silver",fg="red")
+        elif e3.get() == 0:
+            a9.config(text="Error!,please select the Gender",bg="silver",fg="red")
+        elif e4a.get() == 0 and e4b.get() ==0 and e4c.get() == 0:
+            a9.config(text="Error!,please select the DOB",bg="silver",fg="red")
+        elif e5.get() == 0:
+            a9.config(text="Error!,please enter the Mobile no.",bg="silver",fg="red")
+        elif e6.get() == 0:
+            a9.config(text="Error!,please select the 12th percentage",bg="silver",fg="red")
+        elif e7.get() == 0:
+            a9.config(text="Error!,please enter Email ID",bg="silver",fg="red")
+        elif e8.get() == 0:
+            a9.config(text="Error!,please select the Local Address",bg="silver",fg="red")
+        else:
+            w2=Toplevel()
+            w2.title("SUBMIT DETAILS")
+            w2.geometry("1000x800+120+120")
+            w2.config(bg="silver")
+            c0 = Label(w2, text="SUBMIT DETAIL", bg="silver",font=("times new roman",40)).grid(row=0,column=1,pady=2)
+            c1 = Label(w2,text="Username: "+ e1.get(),bg="silver",font=("times new roman",18)).grid(row=1,sticky=W)
+            c2 = Label(w2, text="Registration No.: " + e2.get(), bg="silver", font=("times new roman", 18)).grid(row=2, sticky=W)
+            c3 = Label(w2, text="Gender: " + e3.get(), bg="silver", font=("times new roman", 18)).grid(row=3, sticky=W)
+            c4 = Label(w2, text="DOB: " + e4a.get()+e4b.get()+e4c.get(), bg="silver", font=("times new roman", 18)).grid(row=4,sticky=W)
+            c5 = Label(w2, text="Mobile No.: " + e5.get(), bg="silver", font=("times new roman", 18)).grid(row=5, sticky=W)
+            c6 = Label(w2, text="12th Percentage: " + e6.get(), bg="silver", font=("times new roman", 18)).grid(row=6, sticky=W)
+            c7 = Label(w2, text="Email ID: " + e7.get(), bg="silver", font=("times new roman", 18)).grid(row=7, sticky=W)
+            c8 = Label(w2, text="Local Address: " + e8.get(), bg="silver", font=("times new roman", 18)).grid(row=8, sticky=W)
+            v9 = IntVar()
+            c9 = Checkbutton(w2,text="I here by insure that all the information \nthat is given by me is true to my believe. ",bg="silver", font=("times new roman",18),variable =v9).grid(row=9,sticky=W)
+            c10 = Label(w2,text="  ",bg="silver",fg="red",font=("times new roman",18)).grid(row=11,column=0,sticky=W)
+
+            def success():
+                if v9.get()==0:
+                    c10.config(text="Error!, Please accept the declaration",fg="red",bg="silver")
+                else:
+                    w3=Toplevel()
+                    w3.title("Confirmation")
+                    w3.geometry("1000x800+120+120")
+                    w3.config(bg="silver")
+                    d1=Label(w3,text="Your Form Submission \n takes place successfully!",fg="green",bg="silver",font=("Arial Black",30)).grid(row=0,sticky=W)
+                    w3.mainloop()
+
+            s1 = Button(w2, text="<< Edit", bg="silver", fg="blue", command=w2.destroy).grid(row=11, column=1, sticky=E)
+            s2 = Button(w2, text="Confirm >>", bg="silver", fg="dark orange", command=success).grid(row=11, column=2, sticky=W)
+            w2.mainloop()
+
+
+
+
+s=Button(window,text="SUBMIT",font=("Arial black,bold",25),bg="green",command= check).grid(row=15,column=1,pady=2)
+window.mainloop()
